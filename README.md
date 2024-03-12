@@ -1,1 +1,3 @@
-# Group9
+# OpenAI APIs
+# Tailwind
+# MaterialUI
