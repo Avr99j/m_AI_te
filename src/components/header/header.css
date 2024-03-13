@@ -1,0 +1,12 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 3em;
+}
+.title h1 {
+  font-size: 50px;
+}
+
+.title-ai {
+  color: rgb(119, 211, 215);
+}

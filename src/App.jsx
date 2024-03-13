@@ -1,7 +1,15 @@
-import { useState } from "react";
+import React from "react";
+import BottomNav from "./components/bottomNav/bottomNav";
+import Header from "./components/header/header";
+import BotContainer from "./components/botContainer/botContainer";
 
 function App() {
-  return <></>;
+  return (
+    <div className="wrapper">
+      <Header />
+      <BotContainer />
+    </div>
+  );
 }
 
 export default App;
