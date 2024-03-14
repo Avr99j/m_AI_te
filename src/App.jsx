@@ -1,16 +1,22 @@
 import React from "react";
-import BottomNav from "./components/bottomNav/BottomNav";
-import Header from "./components/header/Header";
-import BotContainer from "./components/botContainer/BotContainer";
-import Text from "./components/text/Text"
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import AskAI from './pages/AskAI';
+import TextToSpeech from './pages/TextToSpeech';
+import ImageGenerator from './pages/ImageGenerator';
+import './App.css'
 
 function App() {
   return (
-    <div className="wrapper">
-      <Header />
-      <BotContainer />
-      <Text />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="askai/*" element={<AskAI />} />
+        <Route path="texttospeach/*" element={<TextToSpeech />} />
+        <Route path="imagegenerator/*" element={<ImageGenerator />} />
+      </Routes>
+    </Router>
+
   );
 }
 
