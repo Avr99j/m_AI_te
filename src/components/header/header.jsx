@@ -3,7 +3,7 @@ import "../header/header.css";
 
 function Header() {
   return (
-    <div className="container title">
+    <div className="title">
       <h1>
         m <span className="title-ai">AI</span> te
       </h1>
