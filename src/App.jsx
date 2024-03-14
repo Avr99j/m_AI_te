@@ -1,13 +1,10 @@
 import React from "react";
-import BottomNav from "./components/bottomNav/bottomNav";
-import Header from "./components/header/header";
-import BotContainer from "./components/botContainer/botContainer";
+import Home from "./pages/home/home";
 
 function App() {
   return (
     <div className="wrapper">
-      <Header />
-      <BotContainer />
+      <Home />
     </div>
   );
 }
