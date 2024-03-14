@@ -3,7 +3,8 @@
   border-radius: 30px;
   padding: 1em 3em;
   align-items: center;
-  height: 250px;
+  text-align: center;
+  width: fit-content;
 }
 
 .bot-img {
@@ -18,12 +19,12 @@
 
 .input-container {
   background-color: transparent;
-  text-align: end;
+  text-align: center;
 }
 
 .input-field {
   background-color: transparent;
-  width: 400px;
+  width: 500px;
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 20px;

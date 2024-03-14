@@ -1,14 +1,13 @@
 import React from "react";
 import "../botContainer/botContainer.css";
 import chatBotImage from "../../assets/images/chatbot.png";
-import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { Input } from "@mui/base/Input";
 import { Button } from "@mui/base/Button";
 
 function BotContainer() {
   return (
-    <Grid container className="container">
+    <Grid container justifyContent="center" margin="auto" className="container">
       <Grid item className="bot-container">
         <img src={chatBotImage} alt="chatbot image" className="bot-img" />
       </Grid>
