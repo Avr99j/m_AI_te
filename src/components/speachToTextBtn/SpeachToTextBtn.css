@@ -1,0 +1,20 @@
+.speach-to-text-btn {
+  width: 250px;
+  height: 250px;
+  background-color: rgb(48, 48, 48);
+  border: none;
+  border-radius: 20px;
+  font-size: 30px;
+}
+
+.speach-to-text-btn:hover {
+  border: 1px solid rgb(119, 211, 215);
+  cursor: pointer;
+}
+
+.btn-icon-div,
+.btn-text-div,
+.btn-icon,
+.btn-text {
+  background-color: transparent;
+}

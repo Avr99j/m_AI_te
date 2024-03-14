@@ -1,7 +1,12 @@
-import { useState } from "react";
+import React from "react";
+import Home from "./pages/home/home";
 
 function App() {
-  return <></>;
+  return (
+    <div className="wrapper">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
