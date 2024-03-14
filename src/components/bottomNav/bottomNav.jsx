@@ -11,7 +11,7 @@ import "../bottomNav/bottomNav.css";
 function BottomNav() {
   const [value, setValue] = React.useState(0);
   return (
-    <Box id="nav-box" sx={{ width: 500 }}>
+    <Box id="nav-box" sx={{ width: 501 }}>
       <BottomNavigation
         id="nav"
         showLabels
