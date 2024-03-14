@@ -1,7 +1,7 @@
 import React from "react";
-import BottomNav from "./components/bottomNav/bottomNav";
-import Header from "./components/header/header";
-import BotContainer from "./components/botContainer/botContainer";
+import BottomNav from "./components/bottomNav/BottomNav";
+import Header from "./components/header/Header";
+import BotContainer from "./components/botContainer/BotContainer";
 
 function App() {
   return (
