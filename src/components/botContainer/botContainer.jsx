@@ -1,5 +1,5 @@
 import React from "react";
-import "../botContainer/botContainer.css";
+import "../botContainer/BotContainer.css";
 import chatBotImage from "../../assets/images/chatbot.png";
 import Grid from "@mui/material/Grid";
 import { Input } from "@mui/base/Input";
@@ -8,10 +8,9 @@ import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRig
 
 function BotContainer() {
   return (
-    <Grid container gap={6} margin="auto" className="bot-container">
-      <Grid item className="bot-container">
-        <img src={chatBotImage} alt="chatbot image" className="bot-img" />
-      </Grid>
+    <Grid container gap={6} className="bot-container">
+      <img src={chatBotImage} alt="chatbot image" className="bot-img" />
+
       <Grid item className="input-container">
         <Input
           slotProps={{ input: { className: "input-field" } }}

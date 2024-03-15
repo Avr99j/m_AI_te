@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "../../components/header/Header";
-import BotContainer from "../../components/botContainer/botContainer";
+import BotContainer from "../../components/botContainer/BotContainer";
 import SpeechToTextBtn from "../../components/speechToTextBtn/SpeechToTextBtn";
 import GeneratePicsBtn from "../../components/generatePicsBtn/GeneratePicsBtn";
 import ChatHistory from "../../components/chatHistory/ChatHistory";
