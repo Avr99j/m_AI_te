@@ -1,15 +1,16 @@
-.speach-to-text-btn {
-  width: 250px;
-  height: 250px;
+.speech-to-text-btn {
+  /* width: 250px;
+  height: 250px; */
   background-color: rgb(48, 48, 48);
   border: none;
   border-radius: 20px;
   font-size: 30px;
 }
 
-.speach-to-text-btn:hover {
-  border: 1px solid rgb(119, 211, 215);
+.speech-to-text-btn:hover {
+  box-shadow: 0 0 15px 0.2px rgb(119, 211, 215);
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .btn-icon-div,

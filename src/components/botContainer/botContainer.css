@@ -1,6 +1,6 @@
 .container {
   background-color: rgb(48, 48, 48);
-  border-radius: 30px;
+  border-radius: 20px;
   padding: 1em 3em;
   align-items: center;
   text-align: center;
@@ -23,12 +23,13 @@
 }
 
 .input-field {
-  background-color: transparent;
-  width: 500px;
+  background-color: white;
+  color: black;
+  /* width: 500px; */
   padding: 1em;
   margin-bottom: 1em;
   border-radius: 20px;
-  border: 1px solid rgb(119, 211, 215);
+  border: none;
 }
 
 .user-input-box {
@@ -36,15 +37,39 @@
 }
 
 .chat-button {
-  background-color: #e67e28;
-  color: black;
-  width: 60px;
-  padding: 1em;
-  border: none;
-  border-radius: 20px;
+  background-color: transparent;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: 2px solid rgb(230, 126, 40);
+  transition: border-color 0.3s ease;
+}
+
+.arrow {
+  background-color: transparent;
+  padding: 2px;
 }
 
 .chat-button:hover {
-  box-shadow: 0 0 5px 2px rgb(119, 211, 215);
   cursor: pointer;
+  transition: 0.2s;
+  animation: borderAnimation 2s infinite;
+}
+
+@keyframes borderAnimation {
+  0% {
+    border-color: rgb(10, 89, 105);
+  }
+  25% {
+    border-color: rgb(42, 250, 255);
+  }
+  50% {
+    border-color: rgb(10, 89, 105);
+  }
+  75% {
+    border-color: rgb(42, 250, 255);
+  }
+  100% {
+    border-color: rgb(10, 89, 105);
+  }
 }
