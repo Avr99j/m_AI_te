@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/header/header";
+import Header from "../../components/header/Header";
 import BotContainer from "../../components/botContainer/botContainer";
 import SpeechToTextBtn from "../../components/speechToTextBtn/SpeechToTextBtn";
 import GeneratePicsBtn from "../../components/generatePicsBtn/GeneratePicsBtn";
@@ -13,7 +13,7 @@ function Home() {
       <div className="content">
         <BotContainer className="bot-container" />
         <SpeechToTextBtn className="speech-to-text-btn" />
-        <GeneratePicsBtn className="generate-pics-btn" />
+        <GeneratePicsBtn className="generate-pics-container" />
         <ChatHistory className="chat-history" />
       </div>
     </div>

@@ -15,7 +15,7 @@
 .content {
   grid-area: content;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 250px 250px;
   grid-gap: 15px;
   grid-template-areas:

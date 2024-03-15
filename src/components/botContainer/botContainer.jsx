@@ -8,7 +8,7 @@ import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRig
 
 function BotContainer() {
   return (
-    <Grid container justifyContent="center" margin="auto" className="container">
+    <Grid container gap={6} margin="auto" className="bot-container">
       <Grid item className="bot-container">
         <img src={chatBotImage} alt="chatbot image" className="bot-img" />
       </Grid>

@@ -5,9 +5,9 @@ import "../speechToTextBtn/SpeechToTextBtn.css";
 
 function SpeechToTextBtn() {
   return (
-    <Button className="speech-to-text-btn">
+    <Button className="speech-to-text-btn speech-to-text-container">
       <div className="btn-icon-div">
-        <LyricsOutlinedIcon style={{ fontSize: "60" }} className="btn-icon" />
+        <LyricsOutlinedIcon style={{ fontSize: "60" }} className="btn-icon " />
       </div>
       <div className="btn-text-div">
         <h6 className="btn-text">Text to speach</h6>

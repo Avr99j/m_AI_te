@@ -5,9 +5,9 @@ import Stack from "@mui/material/Stack";
 import Item from "@mui/material/Stack";
 import "../chatHistory/ChatHistory.css";
 
-function ChatHistory() {
+function ChatHistory(props) {
   return (
-    <Box component="section" className="history-box">
+    <Box component="section" className={`history-box ${props.className}`}>
       <Container className="history-title">
         <h6>Chat History</h6>
       </Container>
