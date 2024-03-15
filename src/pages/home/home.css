@@ -1,0 +1,40 @@
+.wrapper {
+  margin: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "header"
+    "content";
+}
+
+.header {
+  grid-area: header;
+}
+
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 250px 250px;
+  grid-gap: 15px;
+  grid-template-areas:
+    "bot-container bot-container chat-history"
+    "speech-to-text-btn generate-pics-btn chat-history";
+}
+
+.bot-container {
+  grid-area: bot-container;
+}
+
+.speech-to-text-container {
+  grid-area: speech-to-text-btn;
+}
+
+.generate-pics-container {
+  grid-area: generate-pics-btn;
+}
+
+.chat-history {
+  grid-area: chat-history;
+}

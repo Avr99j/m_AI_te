@@ -3,9 +3,9 @@ import { Button } from "@mui/base/Button";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import "../generatePicsBtn/GeneratePicsBtn.css";
 
-function GeneratePicsBtn() {
+function GeneratePicsBtn(props) {
   return (
-    <Button className="generate-Pics-Btn">
+    <Button className={`generate-Pics-Btn ${props.className}`}>
       <div className="btn-icon-div">
         <ImageOutlinedIcon style={{ fontSize: "60" }} className="btn-icon" />
       </div>

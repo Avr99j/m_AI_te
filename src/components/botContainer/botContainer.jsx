@@ -4,10 +4,11 @@ import chatBotImage from "../../assets/images/chatbot.png";
 import Grid from "@mui/material/Grid";
 import { Input } from "@mui/base/Input";
 import { Button } from "@mui/base/Button";
+import KeyboardArrowRightOutlinedIcon from "@mui/icons-material/KeyboardArrowRightOutlined";
 
 function BotContainer() {
   return (
-    <Grid container justifyContent="center" margin="auto" className="container">
+    <Grid container gap={6} margin="auto" className="bot-container">
       <Grid item className="bot-container">
         <img src={chatBotImage} alt="chatbot image" className="bot-img" />
       </Grid>
@@ -18,7 +19,9 @@ function BotContainer() {
           placeholder="Ask me anything..."
           className="user-input-box"
         />
-        <Button className="chat-button">Chat</Button>
+        <Button className="chat-button">
+          <KeyboardArrowRightOutlinedIcon fontSize="large" className="arrow" />
+        </Button>
       </Grid>
     </Grid>
   );

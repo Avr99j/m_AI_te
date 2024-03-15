@@ -1,6 +1,6 @@
 .generate-Pics-Btn {
-  width: 250px;
-  height: 250px;
+  /* width: 250px;
+  height: 250px; */
   background-color: rgb(48, 48, 48);
   border: none;
   border-radius: 20px;
@@ -8,8 +8,9 @@
 }
 
 .generate-Pics-Btn:hover {
-  border: 1px solid rgb(119, 211, 215);
+  box-shadow: 0 0 15px 0.2px rgb(119, 211, 215);
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .btn-icon-div,

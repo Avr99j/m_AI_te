@@ -1,13 +1,13 @@
 import React from "react";
 import { Button } from "@mui/base/Button";
 import LyricsOutlinedIcon from "@mui/icons-material/LyricsOutlined";
-import "../speachToTextBtn/SpeachToTextBtn.css";
+import "../speechToTextBtn/SpeechToTextBtn.css";
 
-function SpeachToTextBtn() {
+function SpeechToTextBtn() {
   return (
-    <Button className="speach-to-text-btn">
+    <Button className="speech-to-text-btn speech-to-text-container">
       <div className="btn-icon-div">
-        <LyricsOutlinedIcon style={{ fontSize: "60" }} className="btn-icon" />
+        <LyricsOutlinedIcon style={{ fontSize: "60" }} className="btn-icon " />
       </div>
       <div className="btn-text-div">
         <h6 className="btn-text">Text to speach</h6>
@@ -16,4 +16,4 @@ function SpeachToTextBtn() {
   );
 }
 
-export default SpeachToTextBtn;
+export default SpeechToTextBtn;
