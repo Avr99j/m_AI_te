@@ -5,7 +5,7 @@ function Header() {
   return (
     <div className="title">
       <h1>
-        m <span className="title-ai">AI</span> te
+        M <span className="title-ai">AI</span> TE
       </h1>
     </div>
   );

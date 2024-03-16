@@ -7,10 +7,10 @@ function GeneratePicsBtn(props) {
   return (
     <Button className={`generate-Pics-Btn ${props.className}`}>
       <div className="btn-icon-div">
-        <ImageOutlinedIcon style={{ fontSize: "60" }} className="btn-icon" />
+        <ImageOutlinedIcon style={{ fontSize: "40" }} className="btn-icon" />
       </div>
       <div className="btn-text-div">
-        <h6 className="btn-text">Generate pictures & art</h6>
+        <h6 className="btn-text">Pictures & Art</h6>
       </div>
     </Button>
   );
