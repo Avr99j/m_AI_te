@@ -1,30 +1,30 @@
 .bot-img {
   background-color: transparent;
-  width: 160px;
-  margin-left: 2em;
+  width: 140px;
+}
+
+.img-grid-item {
+  background-color: transparent;
 }
 
 .bot-container {
   background-color: rgb(48, 48, 48);
   align-items: center;
-  text-align: center;
-  width: fit-content;
-  padding: 0.5em;
   border-radius: 20px;
+  padding: 1em;
 }
 
 .input-container {
   background-color: transparent;
   text-align: center;
-  width: 60%;
 }
 
 .input-field {
   background-color: white;
   color: black;
-  width: 100%;
+  width: 80%;
   padding: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
   border-radius: 20px;
   border: none;
 }
@@ -34,23 +34,25 @@
 }
 
 .chat-button {
-  margin-top: 1em;
-  background-color: transparent;
-  width: 45px;
+  margin-top: 0.5em;
+  background-color: rgb(38, 38, 38);
+  width: 100px;
   height: 45px;
-  border-radius: 50%;
-  border: 2px solid rgb(230, 126, 40);
+  border: transparent;
+  border-radius: 20px;
   transition: border-color 0.3s ease;
+  align-self: flex-end;
 }
 
 .arrow {
   background-color: transparent;
-  padding: 2px;
+  padding-top: 2px;
 }
 
 .chat-button:hover {
   cursor: pointer;
   transition: 0.2s;
+  border: 2px solid black;
   animation: borderAnimation 2s infinite;
 }
 

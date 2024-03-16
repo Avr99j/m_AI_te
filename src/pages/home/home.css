@@ -16,7 +16,7 @@
   grid-area: content;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 250px 250px;
+  grid-template-rows: 40vh 40vh;
   grid-gap: 15px;
   grid-template-areas:
     "bot-container bot-container chat-history"
@@ -37,4 +37,66 @@
 
 .chat-history {
   grid-area: chat-history;
+}
+
+/* MEDIA QUERIES  */
+
+@media screen and (max-width: 1030px) {
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 35vh 30vh 30vh;
+    grid-gap: 15px;
+    grid-template-areas:
+      "bot-container bot-container"
+      "speech-to-text-btn chat-history"
+      "generate-pics-btn chat-history";
+  }
+
+  .bot-container {
+    grid-area: bot-container;
+  }
+
+  .speech-to-text-container {
+    grid-area: speech-to-text-btn;
+  }
+
+  .generate-pics-container {
+    grid-area: generate-pics-btn;
+  }
+
+  .chat-history {
+    grid-area: chat-history;
+  }
+}
+
+@media screen and (max-width: 598px) {
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50vh 30vh 30vh;
+    grid-gap: 15px;
+    grid-template-areas:
+      "bot-container bot-container"
+      "speech-to-text-btn chat-history"
+      "generate-pics-btn chat-history";
+  }
+
+  .bot-container {
+    grid-area: bot-container;
+  }
+
+  .speech-to-text-container {
+    grid-area: speech-to-text-btn;
+  }
+
+  .generate-pics-container {
+    grid-area: generate-pics-btn;
+  }
+
+  .chat-history {
+    grid-area: chat-history;
+  }
 }
