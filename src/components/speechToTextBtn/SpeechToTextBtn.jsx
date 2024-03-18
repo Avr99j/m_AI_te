@@ -10,7 +10,7 @@ function SpeechToTextBtn() {
         <LyricsOutlinedIcon style={{ fontSize: "40" }} className="btn-icon " />
       </div>
       <div className="btn-text-div">
-        <h6 className="btn-text">Text to speach</h6>
+        <h6 className="btn-text">Text to speech</h6>
       </div>
     </Button>
   );
