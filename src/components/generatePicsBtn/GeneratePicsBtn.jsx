@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/base/Button";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
-import "../generatePicsBtn/GeneratePicsBtn.css";
+import "../generatePicsBtn/generatePicsBtn.css";
 
 function GeneratePicsBtn(props) {
   return (
