@@ -1,5 +1,5 @@
 import React from "react";
-import "../botContainer/BotContainer.css";
+import "../botContainer/botContainer.css";
 import chatBotImage from "../../assets/images/chatbot.png";
 import Grid from "@mui/material/Grid";
 import { Input } from "@mui/base/Input";
