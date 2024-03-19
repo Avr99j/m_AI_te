@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { Button } from "@mui/base/Button";
 import LyricsOutlinedIcon from "@mui/icons-material/LyricsOutlined";
-import "../speechToTextBtn/SpeechToTextBtn.css";
+import "./SpeechToTextBtn.css";
 
 function SpeechToTextBtn() {
   return (
