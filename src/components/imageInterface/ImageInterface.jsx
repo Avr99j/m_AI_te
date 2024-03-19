@@ -2,31 +2,10 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import Header from "../header/Header";
+import Header from "../header/header";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
-function ChatInterface() {
-  const [messages, setMessages] = useState([]);
-  const [inputValue, setInputValue] = useState("");
-
-  const sendMessage = async () => {
-    if (!inputValue.trim()) return;
-
-    // Code to send message to AI backend and receive response
-
-    const responseData = { text: "Response from AI" }; // Mock response for now
-    setMessages([
-      ...messages,
-      { text: inputValue, sender: "user" },
-      { text: responseData.text, sender: "ai" },
-    ]);
-    setInputValue("");
-  };
-
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
-
+function ImageInterface() {
   return (
     <Grid container direction="column" marginTop={2} paddingX={2}>
       <div style={{ position: "relative" }}>
@@ -66,9 +45,7 @@ function ChatInterface() {
                 width: "90%",
               }}
               variant="outlined"
-              placeholder="Type your message..."
-              value={inputValue}
-              onChange={handleInputChange}
+              placeholder="Enter a prompt to generate..."
             />
           </Grid>
           <Grid item xs={1}>
@@ -82,41 +59,38 @@ function ChatInterface() {
               }}
               fullWidth
               variant="contained"
-              onClick={sendMessage}
             >
               <ArrowForwardOutlinedIcon />
             </Button>
           </Grid>
         </Grid>
       </div>
-      <Grid
-        container
-        overflow="auto"
-        bgcolor="rgb(48, 48, 48)"
-        height="70vh"
-        borderRadius={1}
-        padding={2}
-      >
-        <Grid item>
-          {messages.map((message, index) => (
-            <Grid item key={index} xs={12} style={{ marginBottom: "20px" }}>
-              {message.sender === "user" ? (
-                <div style={{ textAlign: "top" }}>
-                  <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
-                  {message.text}
-                </div>
-              ) : (
-                <div style={{ textAlign: "bottom" }}>
-                  <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong> <br />{" "}
-                  {message.text}
-                </div>
-              )}
-            </Grid>
-          ))}
-        </Grid>
+      <Grid container justifyContent="space-between" gap={2}>
+        <Grid
+          item
+          sm={12}
+          md={12}
+          lg={12}
+          overflow="auto"
+          bgcolor="rgb(48, 48, 48)"
+          height="90vh"
+          borderRadius={1}
+          padding={2}
+        ></Grid>
+        <Grid
+          item
+          sm={12}
+          md={12}
+          lg={12}
+          overflow="auto"
+          bgcolor="rgb(48, 48, 48)"
+          height="90vh"
+          borderRadius={1}
+          padding={2}
+        ></Grid>
       </Grid>
     </Grid>
   );
 }
 
-export default ChatInterface;
+export default ImageInterface;

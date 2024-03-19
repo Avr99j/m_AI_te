@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 function GeneratePicsBtn(props) {
   return (
     <Button className={`generate-Pics-Btn ${props.className}`}>
-      <NavLink to="chatInterface" style={{ textDecoration: "none" }}>
+      <NavLink to="ImageInterface" style={{ textDecoration: "none" }}>
         <div className="btn-icon-div">
           <ImageOutlinedIcon style={{ fontSize: "40" }} className="btn-icon" />
         </div>
