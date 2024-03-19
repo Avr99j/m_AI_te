@@ -1,75 +1,53 @@
 .bot-img {
-  background-color: transparent;
+  /* background-color: transparent; */
   width: 140px;
-}
-
-.img-grid-item {
-  background-color: transparent;
 }
 
 .bot-container {
   background-color: rgb(48, 48, 48);
   align-items: center;
-  border-radius: 20px;
-  padding: 1em;
+  /* border-radius: 4px; */
+  /* padding: 1em; */
 }
+/* .img-grid-item {
+  background-color: transparent;
+} */
 
-.input-container {
+/* .input-container {
   background-color: transparent;
   text-align: center;
-}
+} */
 
-.input-field {
+/* .input-field {
   background-color: white;
   color: black;
   width: 80%;
   padding: 1em;
   margin-bottom: 0.5em;
-  border-radius: 20px;
+  border-radius: 4px;
   border: none;
-}
+} */
 
-.user-input-box {
+/* .user-input-box {
   background-color: transparent;
-}
+} */
 
-.chat-button {
+/* .chat-button {
   margin-top: 0.5em;
-  background-color: rgb(38, 38, 38);
-  width: 100px;
-  height: 45px;
+  background-color: rgb(231, 132, 48);
+  width: 70px;
+  height: 35px;
   border: transparent;
-  border-radius: 20px;
-  transition: border-color 0.3s ease;
+  border-radius: 5px;
   align-self: flex-end;
-}
+} */
 
-.arrow {
+/* .arrow {
   background-color: transparent;
   padding-top: 2px;
-}
+} */
 
-.chat-button:hover {
+/* .chat-button:hover {
   cursor: pointer;
   transition: 0.2s;
-  border: 2px solid black;
-  animation: borderAnimation 2s infinite;
-}
-
-@keyframes borderAnimation {
-  0% {
-    border-color: rgb(10, 89, 105);
-  }
-  25% {
-    border-color: rgb(42, 250, 255);
-  }
-  50% {
-    border-color: rgb(10, 89, 105);
-  }
-  75% {
-    border-color: rgb(42, 250, 255);
-  }
-  100% {
-    border-color: rgb(10, 89, 105);
-  }
-}
+} */

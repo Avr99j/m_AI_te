@@ -2,7 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: rgb(27, 27, 27);
   color: white;
   font-family: "Raleway", sans-serif;
+}
+
+body {
+  background-color: rgb(27, 27, 27);
 }

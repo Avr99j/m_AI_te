@@ -1,26 +1,48 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import "../botContainer/botContainer.css";
 import chatBotImage from "../../assets/images/chatbot.png";
-import Grid from "@mui/material/Grid";
-import { Input } from "@mui/base/Input";
-import { Button } from "@mui/base/Button";
+import { Button, Grid, TextField } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 
 function BotContainer() {
   return (
-    <Grid container justifyContent="center" gap={3} className="bot-container">
+    <Grid
+      container
+      className="bot-container"
+      sx={{
+        justifyContent: "space-around",
+        gap: "10px",
+      }}
+    >
       <img src={chatBotImage} alt="chatbot image" className="bot-img" />
 
-      <Grid item xs={8} sm={8} md={8} lg={8} className="input-container">
-        <Input
-          slotProps={{ input: { className: "input-field" } }}
-          aria-label="User input"
-          placeholder="Ask me anything..."
-          className="user-input-box"
+      <Grid item xs={8} sm={8} md={8} lg={8}>
+        <TextField
+          sx={{
+            bgcolor: "white",
+            borderRadius: "4px",
+            width: "100%",
+          }}
+          fullWidth
+          variant="outlined"
+          placeholder="Type your message..."
         />
-        <Button className="chat-button">
-          <ArrowForwardOutlinedIcon fontSize="large" className="arrow" />
-        </Button>
+        <NavLink to="chatInterface">
+          <Button
+            sx={{
+              bgcolor: "rgb(231, 132, 48)",
+              marginTop: "6px",
+              width: "20%",
+              "&:hover": {
+                bgcolor: "rgb(231, 132, 48)",
+              },
+            }}
+            variant="contained"
+          >
+            <ArrowForwardOutlinedIcon />
+          </Button>
+        </NavLink>
       </Grid>
     </Grid>
   );
