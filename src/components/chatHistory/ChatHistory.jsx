@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import Item from "@mui/material/Stack";
-import "../chatHistory/chatHistory.css";
+import "./ChatHistory.css";
 
 function ChatHistory(props) {
   return (
