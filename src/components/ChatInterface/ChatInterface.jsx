@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import Header from "../header/header";
+import Header from "../header/Header";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 
 function ChatInterface() {
