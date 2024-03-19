@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../botContainer/botContainer.css";
 import chatBotImage from "../../assets/images/chatbot.png";
 import { Button, Grid, TextField } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 
-function BotContainer() {
+function BotContainer({ onSendMessage }) {
   return (
     <Grid
       container
