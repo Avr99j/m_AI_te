@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
-import Item from "@mui/material/Stack";
-import "./ChatHistory.css";
+import "../chatHistory/ChatHistory.css";
 
-function ChatHistory(props) {
+function ChatHistory() {
+  const [chatHistory, setChatHistory] = useState([]);
+
+  useEffect(() => {
+    const savedHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
+    setChatHistory(savedHistory.slice(-8)); 
+  }, []);
+
   return (
-    <Box component="section" className={`history-box ${props.className}`}>
+    <Box component="section" className="history-box">
       <Container className="history-title">
         <h6>Chat History</h6>
       </Container>
-      <Stack spacing={2} className="history-items"></Stack>
+      <Stack spacing={2} className="history-items">
+        {chatHistory.map((entry, index) => (
+          <div key={index} className={`history-item ${entry.type}`}>
+            {entry.message}
+          </div>
+        ))}
+      </Stack>
     </Box>
   );
 }

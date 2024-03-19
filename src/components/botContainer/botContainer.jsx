@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import "../botContainer/botContainer.css";
 import chatBotImage from "../../assets/images/chatbot.png";
@@ -6,6 +6,25 @@ import { Button, Grid, TextField } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 
 function BotContainer() {
+  const [chatHistory, setChatHistory] = useState([]);
+
+  useEffect(() => {
+    const storedHistory = JSON.parse(localStorage.getItem("chatHistory"));
+    if (storedHistory) {
+      setChatHistory(storedHistory);
+    }
+  }, []); // Empty dependency array to run the effect only once
+
+  const handleSendMessage = (message) => {
+    const updatedHistory = [...chatHistory, { type: "user", message }];
+    localStorage.setItem("chatHistory", JSON.stringify(updatedHistory));
+    setChatHistory(updatedHistory);
+  };
+
+  const handleSearch = (query) => {
+    handleSendMessage(query);
+  };
+
   return (
     <Grid
       container
@@ -27,6 +46,12 @@ function BotContainer() {
           fullWidth
           variant="outlined"
           placeholder="Type your message..."
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearch(e.target.value);
+              e.target.value = "";
+            }
+          }}
         />
         <NavLink to="chatInterface">
           <Button
@@ -39,6 +64,11 @@ function BotContainer() {
               },
             }}
             variant="contained"
+            onClick={() => {
+              const message = document.querySelector('input[type="text"]').value;
+              handleSearch(message);
+              document.querySelector('input[type="text"]').value = "";
+            }}
           >
             <ArrowForwardOutlinedIcon />
           </Button>
