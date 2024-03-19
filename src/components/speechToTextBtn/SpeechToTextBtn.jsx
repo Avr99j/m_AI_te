@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "@mui/base/Button";
 import LyricsOutlinedIcon from "@mui/icons-material/LyricsOutlined";
-import "../speechToTextBtn/speechToTextBtn.css";
+import "./SpeechToTextBtn.css";
 
 function SpeechToTextBtn() {
   return (
