@@ -1,0 +1,39 @@
+.title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2em;
+}
+.title h1 {
+  font-size: 50px;
+  white-space: nowrap;
+}
+
+.title-ai {
+  color: rgb(42, 250, 255);
+  font-size: larger;
+}
+
+/* Define animation keyframes */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 40%;
+  }
+}
+
+/* Apply animation to the span element */
+.title-ai {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 2px solid rgb(231, 132, 48);
+  border-top: 2px solid rgb(231, 132, 48);
+  border-bottom: 2px solid rgb(231, 132, 48);
+  border-radius: 8px;
+  white-space: nowrap;
+  margin: -4px auto;
+  letter-spacing: 0.15em;
+  animation: typing 2.5s steps(30) 1;
+  animation-delay: 0.5s;
+}
