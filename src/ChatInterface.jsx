@@ -18,11 +18,8 @@ const ChatInterface = () => {
   //   }
   // };
 
-  import React, { useState, useEffect, useRef } from 'react';
-import './App.css';
 
-function App() {
-  const [messages, setMessages] = useState([]);
+  //const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
   const bottomOfChat = useRef(null);
 
@@ -91,4 +88,4 @@ function App() {
   );
 }
 
-export default App;
+export default ChatInterface;
