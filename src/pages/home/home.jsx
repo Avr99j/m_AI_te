@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Header from "../../components/header/Header";
-import BotContainer from "../../components/botContainer/BotContainer";
+import Header from "../../components/header/header";
+import BotContainer from "../../components/botContainer/botContainer";
 import SpeechToTextBtn from "../../components/speechToTextBtn/SpeechToTextBtn";
-import GeneratePicsBtn from "../../components/generatePicsBtn/GeneratePicsBtn";
+import GeneratePics from "../../components/generatePics/GeneratePics";
 import ChatHistory from "../../components/chatHistory/ChatHistory";
 import "../home/home.css";
 
@@ -18,12 +18,9 @@ function Home() {
       <Header className="header" />
       <div className="content">
         <BotContainer onReceiveMessage={handleReceiveMessage} />
-        <SpeechToTextBtn className="speech-to-text-btn" />
-        <GeneratePicsBtn className="generate-pics-container" />
-        <ChatHistory
-          className="chat-history"
-          chatHistory={chatHistory}
-        />
+        {/* <SpeechToTextBtn className="speech-to-text-btn" /> */}
+        <GeneratePics className="generate-pics-container" />
+        {/* <ChatHistory className="chat-history" chatHistory={chatHistory} /> */}
       </div>
     </div>
   );

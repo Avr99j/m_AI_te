@@ -1,10 +1,10 @@
 import React from "react";
-import { Button } from "@mui/base/Button";
+import { Button, Grid } from "@mui/material";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
-import "../generatePicsBtn/GeneratePicsBtn.css";
+import "../generatePics/GeneratePics.css";
 import { NavLink } from "react-router-dom";
 
-function GeneratePicsBtn(props) {
+function GeneratePics(props) {
   return (
     <Button className={`generate-Pics-Btn ${props.className}`}>
       <NavLink to="ImageInterface" style={{ textDecoration: "none" }}>
@@ -19,4 +19,8 @@ function GeneratePicsBtn(props) {
   );
 }
 
-export default GeneratePicsBtn;
+// function GeneratePics() {
+//   return <Grid container>hello</Grid>;
+// }
+
+export default GeneratePics;
