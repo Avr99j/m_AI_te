@@ -74,29 +74,23 @@
 
 // export default App;
 
-
-
-
-
-
-
-import React, { useState } from 'react';
-import './App.css';
-import axios from 'axios';
+import React, { useState } from "react";
+import "./App.css";
+import axios from "axios";
 
 function App() {
   const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
 
   const handleSend = async () => {
-    const userMessage = { text: input, sender: 'user' };
+    const userMessage = { text: input, sender: "user" };
 
     const options = {
       method: "POST",
       url: "https://api.edenai.run/v2/text/chat",
       headers: {
-        
-        authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZThkMDM2NDAtYzAzYS00OTNkLWEyNDctZWNkZmFmNzJlYjg5IiwidHlwZSI6ImFwaV90b2tlbiJ9.e4S3EqZVOmOwXpJSTXjSPvShQI8SHBzj1tLi_ZkLlQ0",
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZThkMDM2NDAtYzAzYS00OTNkLWEyNDctZWNkZmFmNzJlYjg5IiwidHlwZSI6ImFwaV90b2tlbiJ9.e4S3EqZVOmOwXpJSTXjSPvShQI8SHBzj1tLi_ZkLlQ0",
       },
       data: {
         providers: "openai",
@@ -106,20 +100,22 @@ function App() {
         temperature: 0.0,
         max_token: 150,
         fallback_providers: "",
-      }
+      },
     };
-
 
     try {
       const response = await axios.request(options);
-           const aiMessage = { text: response.data.openai.generated_text, sender: 'ai' }; 
-      console.log (response.data)
+      const aiMessage = {
+        text: response.data.openai.generated_text,
+        sender: "ai",
+      };
+      console.log(response.data);
       setMessages((prevMessages) => [...prevMessages, userMessage, aiMessage]);
     } catch (error) {
       console.error(error);
     }
 
-    setInput(''); // Clear input field
+    setInput(""); // Clear input field
   };
 
   const handleInputChange = (event) => {
@@ -127,7 +123,7 @@ function App() {
   };
 
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       handleSend();
     }
   };
