@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="chatInterface" element={<ChatInterface />}></Route>
-        <Route path="ImageInterface" element={<ImageInterface />}></Route>
+        <Route path="/chatInterface" element={<ChatInterface />}></Route>
+        <Route path="/ImageInterface" element={<ImageInterface />}></Route>
       </Routes>
     </Router>
   );
