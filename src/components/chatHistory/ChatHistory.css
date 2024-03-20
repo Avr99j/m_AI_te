@@ -1,0 +1,19 @@
+.history-title,
+.history-items,
+h6 {
+  background-color: transparent;
+}
+
+.history-box {
+  background-color: rgb(48, 48, 48);
+  border-radius: 4px;
+}
+
+.history-title {
+  text-align: center;
+  padding: 0.5em;
+  font-size: 30px;
+  background-color: rgb(54, 54, 54);
+  border-radius: 4px 4px 0 0;
+  border-bottom: 2px solid rgb(231, 132, 48);
+}
