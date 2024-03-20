@@ -1,4 +1,4 @@
-.wrapper {
+/* .wrapper {
   margin: 15px;
   display: grid;
   grid-template-columns: 1fr;
@@ -23,6 +23,17 @@
     "speech-to-text-btn generate-pics-btn chat-history";
 }
 
+.content {
+  grid-area: content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 40vh 60vh;
+  grid-gap: 15px;
+  grid-template-areas:
+    "bot-container bot-container"
+    "chat-history generate-pics-btn";
+}
+
 .bot-container {
   grid-area: bot-container;
 }
@@ -37,11 +48,11 @@
 
 .chat-history {
   grid-area: chat-history;
-}
+} */
 
 /* MEDIA QUERIES  */
 
-@media screen and (max-width: 1030px) {
+/* @media screen and (max-width: 1030px) {
   .content {
     grid-area: content;
     display: grid;
@@ -99,4 +110,4 @@
   .chat-history {
     grid-area: chat-history;
   }
-}
+} */
