@@ -8,9 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-<<<<<<< HEAD
 .DS_Store
-=======
 dist
 dist-ssr
 *.local
@@ -26,4 +24,4 @@ dist-ssr
 *.sln
 *.sw?
 
->>>>>>> a69df463854fff71eead39e63f31c6d26505efef
+package-lock.json
