@@ -2,18 +2,19 @@
 .history-items,
 h6 {
   background-color: transparent;
+  display: inline-block;
 }
 
 .history-box {
-  background-color: rgb(48, 48, 48);
-  border-radius: 4px;
+  background-color: rgb(47, 47, 47);
+  height: 100vh;
+  border: 2px solid rgb(34, 34, 34);
 }
 
 .history-title {
-  text-align: center;
-  padding: 0.5em;
+  display: flex;
+  padding: 12px;
   font-size: 30px;
-  background-color: rgb(54, 54, 54);
-  border-radius: 4px 4px 0 0;
-  border-bottom: 2px solid rgb(231, 132, 48);
+  background-color: rgb(55, 55, 55);
+  border-bottom: 2px solid rgb(34, 34, 34);
 }
