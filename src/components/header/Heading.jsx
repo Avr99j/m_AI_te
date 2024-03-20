@@ -1,7 +1,7 @@
 import React from "react";
-import "../header/header.css";
+import "./header.css";
 
-function Header() {
+function Heading() {
   return (
     <div className="title">
       <h1>
@@ -11,4 +11,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default Heading;
