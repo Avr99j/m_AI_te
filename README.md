@@ -1,5 +1,3 @@
 # OpenAI APIs
+# Tailwind
 # MaterialUI
-# REACT
-# REACT Router Dom
-# NodeJS
