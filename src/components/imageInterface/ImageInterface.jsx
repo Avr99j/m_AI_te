@@ -1,21 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-// import ImageGenerator from '../ImageGenerator'
 import axios from '../axiosConfig/axiosConfig'
-import Spinner from '../Spinner/Spinner'
 import ReactPlayer from 'react-player';
+import LinearProgressWithLabelI from '../LinearProgress/LinearProgress'
+import LinearProgressWithLabelM from "../LinearProgress/LinerProgressM";
 
 
+const audio = new Audio("src/assets/sound.mp3");
 let ImgId = '';
 
 function ImageInterface() {
   const [prompt, setPrompt] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [loading, setLoading] = useState(false);
+  const [loadingM, setLoadingM] = useState(false);
   const [motionUrl, setMotionUrl] = useState('');
 
   const generateImage = async () => {
@@ -56,12 +58,14 @@ function ImageInterface() {
 
   const generateMotion = async () => {
     try {
-      setLoading(true);
+      setLoadingM(true);
       const motionResponse = await axios.post('/generations-motion-svd', {
         imageId: ImgId,
-        motionStrength: 5,
+        motionStrength: 3,
       });
-
+      
+    audio.play();
+    console.log(audio);
       const motionGenerationId = motionResponse.data.motionSvdGenerationJob.generationId;
 
       setTimeout(async () => {
@@ -69,10 +73,11 @@ function ImageInterface() {
           const motionImageResponse = await axios.get(`/generations/${motionGenerationId}`);
           const generatedMotion = motionImageResponse.data.generations_by_pk.generated_images[0].motionMP4URL;
           setMotionUrl(generatedMotion);
+          
         } catch (error) {
           console.error('Error fetching motion URLs:', error);
         } finally {
-          setLoading(false);
+          setLoadingM(false);
         }
       }, 80000); // Adjust the delay as needed
     } catch (error) {
@@ -154,7 +159,7 @@ function ImageInterface() {
           height="90vh"
           borderRadius={1}
           padding={2}
-        >{loading ? <Spinner /> : imageUrl && <img src={imageUrl} alt="Generated Image" />}<Button
+        >{loading ? <LinearProgressWithLabelI/> : imageUrl && <img src={imageUrl} alt="Generated Image" />}<Button
           sx={{
             bgcolor: "rgb(231, 132, 48)",
             height: "50px",
@@ -178,7 +183,7 @@ function ImageInterface() {
           height="90vh"
           borderRadius={1}
           padding={2}
-        >{loading ? <Spinner /> : motionUrl && <ReactPlayer playing muted={true} loop={true} url={motionUrl} />}</Grid>
+        >{loadingM ? <LinearProgressWithLabelM/> : motionUrl && <ReactPlayer playing height={768} width={768} muted={true} loop={true} url={motionUrl} />}</Grid>
       </Grid>
     </Grid>
   );
