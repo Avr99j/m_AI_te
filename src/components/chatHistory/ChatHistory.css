@@ -6,8 +6,9 @@ h6 {
 }
 
 .history-box {
-  background-color: rgb(47, 47, 47);
-  height: 100vh;
+  background-color: rgba(47, 47, 47, 0.328);
+  height: fit-content;
+  min-height: 8em;
   border: 2px solid rgb(34, 34, 34);
 }
 

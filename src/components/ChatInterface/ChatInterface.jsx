@@ -154,10 +154,11 @@ function ChatInterface() {
         <Grid
           item
           overflow="auto"
-          height="100vh"
+          height="fit-content"
           padding={2}
-          bgcolor="rgb(47, 47, 47)"
-          border="2px solid rgb(34, 34, 34);
+          marginBottom={4}
+          bgcolor="rgba(47, 47, 47, 0.328)"
+          borderRight="12px solid rgb(15, 15, 15);
 "
           xs={12}
           sm={12}
@@ -170,7 +171,7 @@ function ChatInterface() {
             sx={{
               fontSize: "30px",
               padding: ".5em",
-              borderBottom: "1px solid rgb(42, 250, 255) ",
+              borderBottom: "1px solid white ",
               marginX: "auto",
               marginBottom: "1em",
               justifyContent: "space-between",
@@ -199,13 +200,13 @@ function ChatInterface() {
               <Grid item key={index} style={{ marginBottom: "20px" }}>
                 {message.sender === "user" ? (
                   <div style={{ textAlign: "top" }}>
-                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong>{" "}
-                    <br /> {message.text}
+                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
+                    {message.text}
                   </div>
                 ) : (
                   <div style={{ textAlign: "bottom" }}>
-                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong>{" "}
-                    <br /> {message.text}
+                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong> <br />{" "}
+                    {message.text}
                   </div>
                 )}
               </Grid>
