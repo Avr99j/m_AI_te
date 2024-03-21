@@ -5,6 +5,7 @@ import SpeechToTextBtn from "../../components/speechToTextBtn/SpeechToTextBtn";
 import GeneratePics from "../../components/generatePics/GeneratePics";
 import ChatHistory from "../../components/chatHistory/ChatHistory";
 import "../home/home.css";
+import footer from "../../components/footer/footer"
 
 function Home() {
   const [chatHistory, setChatHistory] = useState([]);
@@ -22,6 +23,7 @@ function Home() {
         <GeneratePics className="generate-pics-container" />
         {/* <ChatHistory className="chat-history" chatHistory={chatHistory} /> */}
       </div>
+      <footer />
     </div>
   );
 }
