@@ -9,7 +9,7 @@
 }
 
 .title-ai {
-  color: rgb(42, 250, 255);
+  color: rgb(32, 232, 246);
   font-size: larger;
 }
 
@@ -30,7 +30,7 @@
   border-right: 2px solid rgb(231, 132, 48);
   border-top: 2px solid rgb(231, 132, 48);
   border-bottom: 2px solid rgb(231, 132, 48);
-  border-radius: 8px;
+  border-radius: 5px;
   white-space: nowrap;
   margin: -4px auto;
   letter-spacing: 0.15em;
