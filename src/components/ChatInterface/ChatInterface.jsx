@@ -45,7 +45,7 @@ function ChatInterface() {
               padding: "5px",
               borderRadius: "4px",
               position: "absolute",
-              left: "10px",
+              right: "10px",
               top: "20px",
               "&:hover": {
                 bgcolor: "rgb(231, 132, 48)",
