@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Header from "../../components/header/header";
+import Header from "../../components/header/Heading";
 import BotContainer from "../../components/botContainer/botContainer";
 import GeneratePics from "../../components/generatePics/GeneratePics";
 import "../home/home.css";

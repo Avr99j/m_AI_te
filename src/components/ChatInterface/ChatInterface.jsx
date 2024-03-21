@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
-import Header from "../header/header";
+import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+console.log("hello");
+import axios from "axios";
+
 import ChatHistory from "../chatHistory/ChatHistory";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 
@@ -11,6 +14,44 @@ function ChatInterface() {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
 
+  const handleSend = async () => {
+    const userMessage = { text: inputValue, sender: "user" };
+
+    const options = {
+      method: "POST",
+      url: "https://api.edenai.run/v2/text/chat",
+      headers: {
+        authorization:
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiZThkMDM2NDAtYzAzYS00OTNkLWEyNDctZWNkZmFmNzJlYjg5IiwidHlwZSI6ImFwaV90b2tlbiJ9.e4S3EqZVOmOwXpJSTXjSPvShQI8SHBzj1tLi_ZkLlQ0",
+      },
+      data: {
+        providers: "openai",
+        text: inputValue,
+        chatbot_global_action: "Act as an assistant",
+        previous_history: [],
+        temperature: 0.0,
+        max_token: 150,
+        fallback_providers: "",
+      },
+    };
+
+    try {
+      const response = await axios.request(options);
+      const aiMessage = {
+        text: response.data.openai.generated_text,
+        sender: "ai",
+      };
+      console.log(response.data);
+      setMessages((prevMessages) => [...prevMessages, userMessage, aiMessage]);
+    } catch (error) {
+      console.error(error);
+    }
+
+    // setInput(''); // Clear input field
+    setInputValue("");
+  };
+
+  /*
   const sendMessage = async () => {
     if (!inputValue.trim()) return;
 
@@ -24,11 +65,17 @@ function ChatInterface() {
     ]);
     setInputValue("");
   };
+*/
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSend();
+    }
+  };
   const handleNewChat = () => {
     setMessages([]);
     setInputValue("");
@@ -94,9 +141,9 @@ function ChatInterface() {
                   transition: ".2s",
                 },
               }}
-              fullWidth
+              fullwidth="true"
               variant="contained"
-              onClick={sendMessage}
+              onClick={handleSend}
             >
               <ArrowForwardOutlinedIcon />
             </Button>
@@ -119,7 +166,7 @@ function ChatInterface() {
         >
           <Grid
             container
-            fullWidth
+            fullwidth="true"
             sx={{
               fontSize: "30px",
               padding: ".5em",
@@ -152,13 +199,13 @@ function ChatInterface() {
               <Grid item key={index} style={{ marginBottom: "20px" }}>
                 {message.sender === "user" ? (
                   <div style={{ textAlign: "top" }}>
-                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
-                    {message.text}
+                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong>{" "}
+                    <br /> {message.text}
                   </div>
                 ) : (
                   <div style={{ textAlign: "bottom" }}>
-                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong> <br />{" "}
-                    {message.text}
+                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong>{" "}
+                    <br /> {message.text}
                   </div>
                 )}
               </Grid>
