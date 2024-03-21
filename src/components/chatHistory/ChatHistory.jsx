@@ -2,21 +2,20 @@ import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
-import "../chatHistory/ChatHistory.css";
-import { TextField, Button, Grid } from "@mui/material";
+import { Button } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
+import "../chatHistory/ChatHistory.css";
 
-function ChatHistory() {
-  const [chatHistory, setChatHistory] = useState([]);
+function ChatHistory({ handleItemClick, chatHistory }) {
+  const [history, setHistory] = useState([]);
 
   useEffect(() => {
-    const savedHistory = JSON.parse(localStorage.getItem("chatHistory")) || [];
-    setChatHistory(savedHistory.slice(-8));
-  }, []);
+    setHistory(chatHistory);
+  }, [chatHistory]);
 
   const handleDeleteHistory = () => {
     localStorage.removeItem("chatHistory");
-    setChatHistory([]);
+    setHistory([]);
   };
 
   return (
@@ -43,7 +42,7 @@ function ChatHistory() {
         </Button>
       </Container>
       <Stack spacing={2} className="history-items" sx={{ padding: "8px" }}>
-        {chatHistory.map((entry, index) => (
+        {history.map((entry, index) => (
           <Button
             key={index}
             className={`history-item ${entry.type}`}
@@ -59,8 +58,9 @@ function ChatHistory() {
                 bgcolor: "rgb(34, 34, 34)",
               },
             }}
+            onClick={() => handleItemClick(entry.text)}
           >
-            {entry.message}
+            {entry.text}
           </Button>
         ))}
       </Stack>
