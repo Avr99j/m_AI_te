@@ -4,9 +4,7 @@ import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-console.log("hello");
 import axios from "axios";
-
 import ChatHistory from "../chatHistory/ChatHistory";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 
@@ -41,31 +39,13 @@ function ChatInterface() {
         text: response.data.openai.generated_text,
         sender: "ai",
       };
-      console.log(response.data);
       setMessages((prevMessages) => [...prevMessages, userMessage, aiMessage]);
     } catch (error) {
       console.error(error);
     }
 
-    // setInput(''); // Clear input field
     setInputValue("");
   };
-
-  /*
-  const sendMessage = async () => {
-    if (!inputValue.trim()) return;
-
-    // Code to send message to AI backend and receive response
-
-    const responseData = { text: "Response from ai" };
-    setMessages([
-      ...messages,
-      { text: inputValue, sender: "user" },
-      { text: responseData.text, sender: "ai" },
-    ]);
-    setInputValue("");
-  };
-*/
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -76,9 +56,15 @@ function ChatInterface() {
       handleSend();
     }
   };
+
   const handleNewChat = () => {
     setMessages([]);
     setInputValue("");
+  };
+
+  const handleUserSearch = (searchText) => {
+    setInputValue(searchText);
+    handleSend();
   };
 
   return (
@@ -157,8 +143,7 @@ function ChatInterface() {
           height="100vh"
           padding={2}
           bgcolor="rgb(47, 47, 47)"
-          border="2px solid rgb(34, 34, 34);
-"
+          border="2px solid rgb(34, 34, 34)"
           xs={12}
           sm={12}
           md={8}
@@ -213,7 +198,10 @@ function ChatInterface() {
           </Grid>
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={4}>
-          <ChatHistory />
+          <ChatHistory
+            handleItemClick={handleUserSearch}
+            chatHistory={messages.filter((message) => message.sender === "user")}
+          />
         </Grid>
       </Grid>
     </Grid>
