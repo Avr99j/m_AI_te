@@ -47,25 +47,8 @@ function ChatInterface() {
       console.error(error);
     }
 
-    // setInput(''); // Clear input field
     setInputValue("");
   };
-
-  /*
-  const sendMessage = async () => {
-    if (!inputValue.trim()) return;
-
-    // Code to send message to AI backend and receive response
-
-    const responseData = { text: "Response from ai" };
-    setMessages([
-      ...messages,
-      { text: inputValue, sender: "user" },
-      { text: responseData.text, sender: "ai" },
-    ]);
-    setInputValue("");
-  };
-*/
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -105,7 +88,69 @@ function ChatInterface() {
         <Header />
       </div>
 
-      <div style={{ position: "relative" }}>
+      <Grid container justifyContent="space-between">
+        <Grid
+          item
+          overflow="auto"
+          height="fit-content"
+          padding={2}
+          marginBottom={4}
+          bgcolor="rgba(47, 47, 47, 0.328)"
+          borderBottom="1px solid white"
+          xs={12}
+          sm={12}
+          md={7}
+          lg={7}
+        >
+          <Grid
+            container
+            fullwidth="true"
+            sx={{
+              fontSize: "30px",
+              marginX: "auto",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h6>How can I help you today?</h6>
+            <Button
+              variant="default"
+              sx={{
+                background: "rgb(231, 132, 48)",
+                "&:hover": {
+                  background: "rgb(231, 132, 48)",
+                  scale: "1.05",
+                  transition: ".2s",
+                },
+              }}
+              onClick={handleNewChat}
+            >
+              <AddBoxOutlinedIcon />
+            </Button>
+          </Grid>
+          <Grid item>
+            {messages.map((message, index) => (
+              <Grid item key={index} style={{ marginBottom: "20px" }}>
+                {message.sender === "user" ? (
+                  <div style={{ textAlign: "top" }}>
+                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
+                    {message.text}
+                  </div>
+                ) : (
+                  <div style={{ textAlign: "bottom" }}>
+                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong> <br />{" "}
+                    {message.text}
+                  </div>
+                )}
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sm={12} md={4} lg={4}>
+          <ChatHistory />
+        </Grid>
+      </Grid>
+      <div style={{ position: "absolute", bottom: 0, width: "90%" }}>
         <Grid
           container
           sx={{
@@ -150,73 +195,6 @@ function ChatInterface() {
           </Grid>
         </Grid>
       </div>
-      <Grid container>
-        <Grid
-          item
-          overflow="auto"
-          height="fit-content"
-          padding={2}
-          marginBottom={4}
-          bgcolor="rgba(47, 47, 47, 0.328)"
-          borderRight="12px solid rgb(15, 15, 15);
-"
-          xs={12}
-          sm={12}
-          md={8}
-          lg={8}
-        >
-          <Grid
-            container
-            fullwidth="true"
-            sx={{
-              fontSize: "30px",
-              padding: ".5em",
-              borderBottom: "1px solid white ",
-              marginX: "auto",
-              marginBottom: "1em",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
-            <h6>How can I help you today?</h6>
-            <Button
-              variant="default"
-              sx={{
-                textTransform: "inherit",
-                background: "rgb(231, 132, 48)",
-                "&:hover": {
-                  background: "rgb(231, 132, 48)",
-                  scale: "1.05",
-                  transition: ".2s",
-                },
-              }}
-              onClick={handleNewChat}
-            >
-              <AddBoxOutlinedIcon />
-            </Button>
-          </Grid>
-          <Grid item>
-            {messages.map((message, index) => (
-              <Grid item key={index} style={{ marginBottom: "20px" }}>
-                {message.sender === "user" ? (
-                  <div style={{ textAlign: "top" }}>
-                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
-                    {message.text}
-                  </div>
-                ) : (
-                  <div style={{ textAlign: "bottom" }}>
-                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong> <br />{" "}
-                    {message.text}
-                  </div>
-                )}
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-        <Grid item xs={12} sm={12} md={4} lg={4}>
-          <ChatHistory />
-        </Grid>
-      </Grid>
     </Grid>
   );
 }

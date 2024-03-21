@@ -157,7 +157,7 @@ function ImageInterface() {
           // overflow="auto"
           justifyContent="center"
           bgcolor="transparent"
-          height="130vh"
+          height="fit-content"
           borderRadius={1}
           textAlign="center"
           padding={2}
@@ -181,7 +181,7 @@ function ImageInterface() {
           variant="contained"
           onClick={generateMotion}
         >
-          Add Motion{/* <ArrowForwardOutlinedIcon /> */}
+          Add Motion
         </Button>
         <Grid
           item
@@ -190,7 +190,7 @@ function ImageInterface() {
           lg={12}
           // overflow="auto"
           bgcolor="transparent"
-          height="130vh"
+          height="fit-content"
           justifyContent="center"
           textAlign="center"
           borderRadius={1}

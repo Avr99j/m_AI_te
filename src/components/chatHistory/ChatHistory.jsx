@@ -42,7 +42,7 @@ function ChatHistory() {
           <DeleteOutlineOutlinedIcon />
         </Button>
       </Container>
-      <Stack spacing={2} className="history-items" sx={{ padding: "8px" }}>
+      <Stack spacing={2} className="history-items">
         {chatHistory.map((entry, index) => (
           <Button
             key={index}
