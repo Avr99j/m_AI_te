@@ -6,6 +6,11 @@ footer p {
     margin: 1em 1em;
 }
 
+.rights {
+    display: inline;
+    float: left;
+}
+
 .avatar-div {
     display: flex;
     gap: 1em;
@@ -13,7 +18,7 @@ footer p {
 }
 
 .avatar-icon {
-    background-color: var(--white);
+    background-color: white;
     padding: 6px;
     border-radius: 50%;
     opacity: 80%;
@@ -22,7 +27,6 @@ footer p {
 .avatar-icon:hover {
     transform: scale(1.2);
     transition: 0.3s;
-    background-color: var(--blue);
 }
 
 @media only screen and (max-width: 700px) {
