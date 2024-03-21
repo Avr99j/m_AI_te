@@ -130,7 +130,7 @@ function ChatInterface() {
               alignItems: "center",
             }}
           >
-            <h6>Chat Interface</h6>
+            <h6>How can I help you today?</h6>
             <Button
               variant="default"
               sx={{
