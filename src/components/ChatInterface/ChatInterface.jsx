@@ -62,11 +62,19 @@ function ChatInterface() {
     setInputValue("");
   };
 
-  const handleUserSearch = (searchText) => {
-    setInputValue(searchText);
-    handleSend();
+  const handleUserSearch = async (searchText) => {
+    // Check if the current input value is different from the previous input value
+    if (searchText !== inputValue) {
+      // Add the user message to the chat history
+      const userMessage = { text: searchText, sender: "user" };
+      setMessages((prevMessages) => [...prevMessages, userMessage]);
+      // Update the input value before sending the message
+      setInputValue(searchText);
+      // Send the search term to the chatbot
+      await handleSend();
+    }
   };
-
+  
   return (
     <Grid container direction="column" marginTop={2} paddingX={2}>
       <div style={{ position: "relative" }}>
@@ -114,6 +122,7 @@ function ChatInterface() {
               placeholder="Type your message..."
               value={inputValue}
               onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
             />
           </Grid>
           <Grid item xs={1}>
