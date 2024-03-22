@@ -13,6 +13,10 @@ function ChatInterface() {
   const [inputValue, setInputValue] = useState("");
 
   const handleSend = async () => {
+    // Check if the inputValue is empty
+    if (!inputValue.trim()) {
+      return; // Return early if empty
+    }
     const userMessage = { text: inputValue, sender: "user" };
 
     const options = {
@@ -62,18 +66,17 @@ function ChatInterface() {
     setInputValue("");
   };
 
-  const handleUserSearch = async (searchText) => {
-    // Check if the current input value is different from the previous input value
-    if (searchText !== inputValue) {
-      // Add the user message to the chat history
-      const userMessage = { text: searchText, sender: "user" };
-      setMessages((prevMessages) => [...prevMessages, userMessage]);
-      // Update the input value before sending the message
-      setInputValue(searchText);
-      // Send the search term to the chatbot
-      await handleSend();
-    }
-  };
+// ChatInterface component
+const handleUserSearch = async (searchText) => {
+  // Add the user message to the chat history
+  const userMessage = { text: searchText, sender: "user" };
+  setMessages((prevMessages) => [...prevMessages, userMessage]);
+  // Update the input value before sending the message
+  setInputValue(searchText);
+  // Send the search term to the chatbot
+  await handleSend();
+};
+
   
   return (
     <Grid container direction="column" marginTop={2} paddingX={2}>
@@ -207,8 +210,8 @@ function ChatInterface() {
           </Grid>
         </Grid>
         <Grid item xs={12} sm={12} md={4} lg={4}>
-          <ChatHistory
-            handleItemClick={handleUserSearch}
+        <ChatHistory
+            handleItemClick={handleUserSearch} // Pass handleUserSearch function as handleItemClick prop
             chatHistory={messages.filter((message) => message.sender === "user")}
           />
         </Grid>
