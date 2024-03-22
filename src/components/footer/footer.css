@@ -1,5 +1,5 @@
 footer p {
-    color: var(--white);
+    color: white;
     font-size: 16px;
     padding: 3px;
     border-radius: 10px;
@@ -9,10 +9,14 @@ footer p {
 .rights {
     display: inline;
     float: left;
+    text-align: center;
 }
 
 .avatar-div {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 1em;
     margin-right: 2em;
 }
@@ -29,10 +33,16 @@ footer p {
     transition: 0.3s;
 }
 
-@media only screen and (max-width: 700px) {
+/* @media only screen and (max-width: 700px) {
     footer {
         min-width: 800px;
         flex-direction: column;
         align-items: center;
+    }
+} */
+
+@media (max-width: 768px) {
+    .avatar-div {
+        flex-direction: column;
     }
 }
