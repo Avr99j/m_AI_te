@@ -5,7 +5,7 @@ const Footer = () => {
     return (
         <footer>
             <div className="footer">
-            <p className="rights">&copy; 2024 My Website. All Rights Reserved.</p>
+            <p className="rights">&copy; 2024 My Website. All Right Reserved.</p>
                 <div className="avatar-div">
                     <p>Check out the team on Github...</p>
                     <a href="https://github.com/jpquental90" target="_blank">
