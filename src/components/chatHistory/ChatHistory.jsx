@@ -6,7 +6,7 @@ import { Button } from "@mui/material";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import "../chatHistory/ChatHistory.css";
 
-function ChatHistory({ chatHistory }) {
+function ChatHistory({ chatHistory, handleItemClick }) {
   const [history, setHistory] = useState([]);
 
   useEffect(() => {
@@ -58,7 +58,7 @@ function ChatHistory({ chatHistory }) {
                 bgcolor: "rgb(34, 34, 34)",
               },
             }}
-
+            onClick={() => handleItemClick(entry.text)} // Call handleItemClick with the clicked term
           >
             {entry.text}
           </Button>
