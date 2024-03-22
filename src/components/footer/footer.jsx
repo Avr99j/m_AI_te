@@ -27,8 +27,7 @@ const Footer = () => {
                     <a href="https://github.com/Terr0y" target="_blank">
                     <img src="../src/assets/images/avatar_2.png" alt="avatar icon" width="50px" className="avatar-icon"/>
                     </a>
-                    </div>
-                    
+                    </div>                    
                 </div>
             </div>
         </footer>
