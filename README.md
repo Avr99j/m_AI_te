@@ -35,6 +35,8 @@ To run mAIte locally on your machine, follow these steps:
 
 The website is also hoted via netlify at - [https://maite9.netlify.app](https://maite9.netlify.app)
 
+__Please note that the website is currently facing dependency version conflicts on netlify. To use the website, please fork the repository to your local machine and run 'npm run dev' once all the dependencies are downloaded. Apologies for the inconvenience. Thanks__
+
 ## Contributing
 
 We welcome contributions from the community to enhance mAIte further. If you'd like to contribute, please follow these guidelines:
