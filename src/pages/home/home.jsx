@@ -3,7 +3,7 @@ import Header from "../../components/header/Heading";
 import BotContainer from "../../components/botContainer/botContainer";
 import GeneratePics from "../../components/generatePics/GeneratePics";
 import "../home/home.css";
-import Footer from "../../components/footer/Footer"
+import Footer from "../../components/footer/footer"
 import { Grid } from "@mui/material";
 
 function Home() {
