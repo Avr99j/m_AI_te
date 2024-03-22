@@ -4,34 +4,34 @@ import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import axios from '../axiosConfig/axiosConfig'
-import ReactPlayer from 'react-player';
-import LinearProgressWithLabelI from '../LinearProgress/LinearProgress'
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
+import axios from "../axiosConfig/axiosConfig";
+import ReactPlayer from "react-player";
+import LinearProgressWithLabelI from "../LinearProgress/LinearProgress";
 import LinearProgressWithLabelM from "../LinearProgress/LinerProgressM";
 
-
 const audio = new Audio("src/assets/sound.mp3");
-let ImgId = '';
+let ImgId = "";
 
 function ImageInterface() {
-  const [prompt, setPrompt] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+  const [prompt, setPrompt] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [loading, setLoading] = useState(false);
   const [loadingM, setLoadingM] = useState(false);
-  const [motionUrl, setMotionUrl] = useState('');
+  const [motionUrl, setMotionUrl] = useState("");
 
   const generateImage = async () => {
     try {
       setLoading(true);
-      const response = await axios.post('/generations', {
+      const response = await axios.post("/generations", {
         prompt: prompt,
         height: 512,
-        modelId: '',
+        modelId: "",
         width: 512,
         alchemy: true,
         photoReal: true,
         photoRealStrength: 0.5,
-        presetStyle: "CINEMATIC"
+        presetStyle: "CINEMATIC",
       });
       console.log(response);
       const generationId = response.data.sdGenerationJob.generationId;
@@ -39,64 +39,89 @@ function ImageInterface() {
       setTimeout(async () => {
         try {
           const imageResponse = await axios.get(`/generations/${generationId}`);
-          const generatedImages = imageResponse.data.generations_by_pk.generated_images[0].url;
+          const generatedImages =
+            imageResponse.data.generations_by_pk.generated_images[0].url;
           ImgId = imageResponse.data.generations_by_pk.generated_images[0].id;
           console.log(generatedImages);
           console.log(ImgId);
           setImageUrl(generatedImages);
-
         } catch (error) {
-          console.error('Error fetching image URLs:', error);
+          console.error("Error fetching image URLs:", error);
         } finally {
           setLoading(false);
         }
       }, 28000);
     } catch (error) {
-      console.error('Error generating image:', error);
+      console.error("Error generating image:", error);
     }
   };
 
   const generateMotion = async () => {
     try {
       setLoadingM(true);
-      const motionResponse = await axios.post('/generations-motion-svd', {
+      const motionResponse = await axios.post("/generations-motion-svd", {
         imageId: ImgId,
         motionStrength: 3,
       });
-      
-    audio.play();
-    console.log(audio);
+
+      audio.play();
+      console.log(audio);
       const motionGenerationId = motionResponse.data.motionSvdGenerationJob.generationId;
 
       setTimeout(async () => {
         try {
-          const motionImageResponse = await axios.get(`/generations/${motionGenerationId}`);
-          const generatedMotion = motionImageResponse.data.generations_by_pk.generated_images[0].motionMP4URL;
+          const motionImageResponse = await axios.get(
+            `/generations/${motionGenerationId}`
+          );
+          const generatedMotion =
+            motionImageResponse.data.generations_by_pk.generated_images[0].motionMP4URL;
           setMotionUrl(generatedMotion);
-          
         } catch (error) {
-          console.error('Error fetching motion URLs:', error);
+          console.error("Error fetching motion URLs:", error);
         } finally {
           setLoadingM(false);
         }
       }, 80000); // Adjust the delay as needed
     } catch (error) {
-      console.error('Error generating motion:', error);
+      console.error("Error generating motion:", error);
     }
   };
   return (
     <Grid container direction="column" marginTop={2} paddingX={2}>
       <div style={{ position: "relative" }}>
-        <NavLink to={"/"}>
-          <HomeOutlinedIcon
+        <NavLink to={"/chatInterface"}>
+          <ChatOutlinedIcon
             sx={{
-              bgcolor: "rgb(231, 132, 48)",
               fontSize: "50px",
               padding: "5px",
+              border: "1px solid rgb(32, 232, 246)",
               borderRadius: "4px",
               position: "absolute",
               right: "10px",
               top: "20px",
+              "&:hover": {
+                bgcolor: "black",
+                scale: "1.05",
+                transition: ".2s",
+              },
+            }}
+          />
+        </NavLink>
+        <NavLink to={"/"}>
+          <HomeOutlinedIcon
+            sx={{
+              fontSize: "50px",
+              padding: "5px",
+              border: "1px solid rgb(32, 232, 246)",
+              borderRadius: "4px",
+              position: "absolute",
+              right: "75px",
+              top: "20px",
+              "&:hover": {
+                bgcolor: "black",
+                scale: "1.05",
+                transition: ".2s",
+              },
             }}
           />
         </NavLink>
@@ -135,6 +160,8 @@ function ImageInterface() {
                 height: "50px",
                 "&:hover": {
                   bgcolor: "rgb(231, 132, 48)",
+                  scale: "1.05",
+                  transition: ".2s",
                 },
               }}
               fullWidth
@@ -143,50 +170,77 @@ function ImageInterface() {
             >
               <ArrowForwardOutlinedIcon />
             </Button>
-
           </Grid>
         </Grid>
       </div>
-      
+
       <Grid container justifyContent="space-between" gap={2}>
         <Grid
           item
           sm={12}
           md={12}
           lg={12}
-          overflow="auto"
-          bgcolor="rgb(48, 48, 48)"
-          height="90vh"
+          // overflow="auto"
+          justifyContent="center"
+          bgcolor="transparent"
+          height="fit-content"
           borderRadius={1}
+          textAlign="center"
           padding={2}
-        >{loading ? <LinearProgressWithLabelI/> : imageUrl && <img src={imageUrl} alt="Generated Image" />}<Button
+        >
+          {loading ? (
+            <LinearProgressWithLabelI />
+          ) : (
+            imageUrl && <img src={imageUrl} alt="Generated Image" />
+          )}
+        </Grid>
+        <Button
           sx={{
             bgcolor: "rgb(231, 132, 48)",
             height: "50px",
+            marginTop: "3em",
+            margin: " 0 auto",
             "&:hover": {
               bgcolor: "rgb(231, 132, 48)",
+              scale: "1.05",
+              transition: ".2s",
             },
           }}
-          fullWidth
           variant="contained"
           onClick={generateMotion}
         >
-            <ArrowForwardOutlinedIcon />
-          </Button></Grid>
+          Add Motion
+        </Button>
         <Grid
           item
           sm={12}
           md={12}
           lg={12}
-          overflow="auto"
-          bgcolor="rgb(48, 48, 48)"
-          height="90vh"
+          // overflow="auto"
+          bgcolor="transparent"
+          height="fit-content"
+          justifyContent="center"
+          textAlign="center"
           borderRadius={1}
           padding={2}
-        >{loadingM ? <LinearProgressWithLabelM/> : motionUrl && <ReactPlayer playing height={768} width={768} muted={true} loop={true} url={motionUrl} />}</Grid>
+        >
+          {loadingM ? (
+            <LinearProgressWithLabelM />
+          ) : (
+            motionUrl && (
+              <ReactPlayer
+                playing
+                height={768}
+                width={768}
+                muted={true}
+                loop={true}
+                url={motionUrl}
+              />
+            )
+          )}
+        </Grid>
       </Grid>
     </Grid>
   );
-
 }
 export default ImageInterface;
