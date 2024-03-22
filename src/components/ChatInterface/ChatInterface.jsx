@@ -6,7 +6,6 @@ import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import axios from "axios";
-
 import ChatHistory from "../chatHistory/ChatHistory";
 import AddBoxOutlinedIcon from "@mui/icons-material/AddBoxOutlined";
 
@@ -41,7 +40,6 @@ function ChatInterface() {
         text: response.data.openai.generated_text,
         sender: "ai",
       };
-      console.log(response.data);
       setMessages((prevMessages) => [...prevMessages, userMessage, aiMessage]);
     } catch (error) {
       console.error(error);
@@ -59,9 +57,23 @@ function ChatInterface() {
       handleSend();
     }
   };
+
   const handleNewChat = () => {
     setMessages([]);
     setInputValue("");
+  };
+
+  const handleUserSearch = async (searchText) => {
+    // Check if the current input value is different from the previous input value
+    if (searchText !== inputValue) {
+      // Add the user message to the chat history
+      const userMessage = { text: searchText, sender: "user" };
+      setMessages((prevMessages) => [...prevMessages, userMessage]);
+      // Update the input value before sending the message
+      setInputValue(searchText);
+      // Send the search term to the chatbot
+      await handleSend();
+    }
   };
 
   return (
@@ -190,6 +202,7 @@ function ChatInterface() {
               placeholder="Type your message..."
               value={inputValue}
               onChange={handleInputChange}
+              onKeyPress={handleKeyPress}
             />
           </Grid>
           <Grid item xs={1}>
@@ -212,6 +225,72 @@ function ChatInterface() {
           </Grid>
         </Grid>
       </div>
+      <Grid container>
+        <Grid
+          item
+          overflow="auto"
+          height="100vh"
+          padding={2}
+          bgcolor="rgb(47, 47, 47)"
+          border="2px solid rgb(34, 34, 34);
+"
+          xs={12}
+          sm={12}
+          md={8}
+          lg={8}
+        >
+          <Grid
+            container
+            fullwidth="true"
+            sx={{
+              fontSize: "30px",
+              padding: ".5em",
+              borderBottom: "1px solid rgb(42, 250, 255) ",
+              marginX: "auto",
+              marginBottom: "1em",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h6>How can I help you today?</h6>
+            <Button
+              variant="default"
+              sx={{
+                textTransform: "inherit",
+                background: "rgb(231, 132, 48)",
+                "&:hover": {
+                  background: "rgb(231, 132, 48)",
+                  scale: "1.05",
+                  transition: ".2s",
+                },
+              }}
+              onClick={handleNewChat}
+            >
+              <AddBoxOutlinedIcon />
+            </Button>
+          </Grid>
+          <Grid item>
+            {messages.map((message, index) => (
+              <Grid item key={index} style={{ marginBottom: "20px" }}>
+                {message.sender === "user" ? (
+                  <div style={{ textAlign: "top" }}>
+                    <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
+                    {message.text}
+                  </div>
+                ) : (
+                  <div style={{ textAlign: "bottom" }}>
+                    <strong style={{ color: "rgb(42, 250, 255)" }}>AI</strong> <br />{" "}
+                    {message.text}
+                  </div>
+                )}
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sm={12} md={4} lg={4}>
+          <ChatHistory />
+        </Grid>
+      </Grid>
     </Grid>
   );
 }
