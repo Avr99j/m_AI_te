@@ -7,15 +7,11 @@ h6 {
 
 .history-box {
   background-color: rgba(47, 47, 47, 0.328);
-  height: fit-content;
-  /* min-height: 8em; */
-  border: 2px solid rgb(34, 34, 34);
+  height: 60vh;
 }
 
 .history-title {
   display: flex;
   padding: 15px;
   font-size: 30px;
-  background-color: rgba(47, 47, 47, 0.328);
-  border-bottom: 1px solid white;
 }

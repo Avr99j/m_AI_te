@@ -4,7 +4,7 @@ import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-console.log("hello");
+import ImageOutlinedIcon from "@mui/icons-material/ImageOutlined";
 import axios from "axios";
 
 import ChatHistory from "../chatHistory/ChatHistory";
@@ -67,18 +67,36 @@ function ChatInterface() {
   return (
     <Grid container direction="column" marginTop={2} paddingX={2}>
       <div style={{ position: "relative" }}>
-        <NavLink to={"/"}>
-          <HomeOutlinedIcon
+        <NavLink to={"/ImageInterface"}>
+          <ImageOutlinedIcon
             sx={{
-              bgcolor: "rgb(231, 132, 48)",
               fontSize: "50px",
               padding: "5px",
+              border: "1px solid rgb(32, 232, 246)",
               borderRadius: "4px",
               position: "absolute",
               right: "10px",
               top: "20px",
               "&:hover": {
-                bgcolor: "rgb(231, 132, 48)",
+                bgcolor: "black",
+                scale: "1.05",
+                transition: ".2s",
+              },
+            }}
+          />
+        </NavLink>
+        <NavLink to={"/"}>
+          <HomeOutlinedIcon
+            sx={{
+              fontSize: "50px",
+              padding: "5px",
+              border: "1px solid rgb(32, 232, 246)",
+              borderRadius: "4px",
+              position: "absolute",
+              right: "75px",
+              top: "20px",
+              "&:hover": {
+                bgcolor: "black",
                 scale: "1.05",
                 transition: ".2s",
               },
@@ -92,11 +110,10 @@ function ChatInterface() {
         <Grid
           item
           overflow="auto"
-          height="fit-content"
+          height="60vh"
           padding={2}
           marginBottom={4}
           bgcolor="rgba(47, 47, 47, 0.328)"
-          borderBottom="1px solid white"
           xs={12}
           sm={12}
           md={7}
@@ -104,7 +121,6 @@ function ChatInterface() {
         >
           <Grid
             container
-            fullwidth="true"
             sx={{
               fontSize: "30px",
               marginX: "auto",
@@ -128,11 +144,12 @@ function ChatInterface() {
               <AddBoxOutlinedIcon />
             </Button>
           </Grid>
+
           <Grid item>
             {messages.map((message, index) => (
               <Grid item key={index} style={{ marginBottom: "20px" }}>
                 {message.sender === "user" ? (
-                  <div style={{ textAlign: "top" }}>
+                  <div style={{ textAlign: "top", marginTop: "1em" }}>
                     <strong style={{ color: "rgb(231, 132, 48)" }}>You</strong> <br />{" "}
                     {message.text}
                   </div>
@@ -150,7 +167,7 @@ function ChatInterface() {
           <ChatHistory />
         </Grid>
       </Grid>
-      <div style={{ position: "absolute", bottom: 0, width: "90%" }}>
+      <div>
         <Grid
           container
           sx={{

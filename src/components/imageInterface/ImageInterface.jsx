@@ -4,6 +4,7 @@ import { TextField, Button, Grid } from "@mui/material";
 import ArrowForwardOutlinedIcon from "@mui/icons-material/ArrowForwardOutlined";
 import Header from "../header/Heading";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import axios from "../axiosConfig/axiosConfig";
 import ReactPlayer from "react-player";
 import LinearProgressWithLabelI from "../LinearProgress/LinearProgress";
@@ -88,16 +89,39 @@ function ImageInterface() {
   return (
     <Grid container direction="column" marginTop={2} paddingX={2}>
       <div style={{ position: "relative" }}>
-        <NavLink to={"/"}>
-          <HomeOutlinedIcon
+        <NavLink to={"/chatInterface"}>
+          <ChatOutlinedIcon
             sx={{
-              bgcolor: "rgb(231, 132, 48)",
               fontSize: "50px",
               padding: "5px",
+              border: "1px solid rgb(32, 232, 246)",
               borderRadius: "4px",
               position: "absolute",
               right: "10px",
               top: "20px",
+              "&:hover": {
+                bgcolor: "black",
+                scale: "1.05",
+                transition: ".2s",
+              },
+            }}
+          />
+        </NavLink>
+        <NavLink to={"/"}>
+          <HomeOutlinedIcon
+            sx={{
+              fontSize: "50px",
+              padding: "5px",
+              border: "1px solid rgb(32, 232, 246)",
+              borderRadius: "4px",
+              position: "absolute",
+              right: "75px",
+              top: "20px",
+              "&:hover": {
+                bgcolor: "black",
+                scale: "1.05",
+                transition: ".2s",
+              },
             }}
           />
         </NavLink>
@@ -136,6 +160,8 @@ function ImageInterface() {
                 height: "50px",
                 "&:hover": {
                   bgcolor: "rgb(231, 132, 48)",
+                  scale: "1.05",
+                  transition: ".2s",
                 },
               }}
               fullWidth
@@ -176,6 +202,8 @@ function ImageInterface() {
             margin: " 0 auto",
             "&:hover": {
               bgcolor: "rgb(231, 132, 48)",
+              scale: "1.05",
+              transition: ".2s",
             },
           }}
           variant="contained"
